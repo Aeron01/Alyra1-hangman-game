@@ -3,6 +3,12 @@ const readlineSync = require('readline-sync')
 const chalk = require('chalk')
 const { randomInt } = require('crypto')
 
+if (!fs.existsSync('./dict.txt' && './score.json')) {
+  console.log(chalk.red(`Error: dict.txt or score.json does not exist`))
+  process.exit(1)
+}
+
+
 
 // initialisation du score, du nombre de party et du compteur d'essai global
 let score = 0
