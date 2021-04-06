@@ -10,7 +10,7 @@ const { clear } = require('console')
 if (!fs.existsSync('./dict.txt' && './score.json')) {
   console.log(chalk.red(`Error: dict.txt or score.json does not exist`))
   process.exit(1)
-} /*else if (fs.existsSync('./dict.bak' && './score.bak')) {
+} else if (fs.existsSync('./dict.bak' && './score.bak')) {
 
 } else {
   switch ('./dict.bak' || './score.bak') {
@@ -22,7 +22,7 @@ if (!fs.existsSync('./dict.txt' && './score.json')) {
       fs.writeFileSync('./score.bak', `${filecont2}`)
       break
   }
-}*/
+}
 console.log(chalk.bold.rgb(162, 51, 255)('JEU DU PENDU'))
 // a mettre en place -- affichage du high score
 //let highScore = fs.readFileSync(`./score.json`)
