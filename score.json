@@ -1,14 +1,54 @@
 {
-  "1st": {
-    "name": "Brainiac",
-    "score": 540
-  },
-  "2nd": {
-    "name": "Manhunter",
-    "score": 430
-  },
-  "3nd": {
-    "name": "Sonic",
-    "score": 170
-  }
+  "top": [
+    {
+      "name": "Brainiac ",
+      "score": 540,
+      "position": 1
+    },
+    {
+      "name": "Manhunter",
+      "score": 430,
+      "position": 2
+    },
+    {
+      "name": "Sonic    ",
+      "score": 170,
+      "position": 3
+    },
+    {
+      "name": "_________",
+      "score": 0,
+      "position": 4
+    },
+    {
+      "name": "_________",
+      "score": 0,
+      "position": 5
+    },
+    {
+      "name": "_________",
+      "score": 0,
+      "position": 6
+    },
+    {
+      "name": "_________",
+      "score": 0,
+      "position": 7
+    },
+    {
+      "name": "_________",
+      "score": 0,
+      "position": 8
+    },
+    {
+      "name": "_________",
+      "score": 0,
+      "position": 9
+    },
+    {
+      "name": "_________",
+      "score": 0,
+      "position": 10
+    }
+  ]
 }

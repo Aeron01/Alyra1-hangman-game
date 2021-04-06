@@ -24,8 +24,10 @@ if (!fs.existsSync('./dict.txt' && './score.json')) {
   }
 }*/
 console.log(chalk.bold.rgb(162, 51, 255)('JEU DU PENDU'))
-//const highScore = fs.readFileSync('./score.json', 'utf-8')
-//console.log(highScore)
+// a mettre en place -- affichage du high score
+//let highScore = fs.readFileSync(`./score.json`)
+//let data = JSON.parse(highScore)
+//console.log(data.top)
 const start = readlineSync.keyIn(chalk.rgb(51, 221, 255).bold(`Appuyer sur la touche Espace pour commencer\n Ou la touche Q pour quitter`, { limit: [' ', 'q'] })).toUpperCase()
 if (start === 'Q') {
   process.exit(1)
@@ -65,8 +67,8 @@ const starGame = () => {
   while (turnoff = true) {
     console.log(chalk.yellowBright(`Partie ${partyLeft}/3\n\n`))
     console.log(chalk.red(hangmanPic[hang]))
-    console.log(chalk.whiteBright(`\n\nSaura tu deviner le mot masqué ?\n${emptTab.join().split(',').join(' ')}\nIl te reste${chalk.yellow(` ${plyrTry} `)}essais.    Score: ${chalk.magentaBright(`${score}`)} Points.\n`))
-    const plyerEnt = readlineSync.keyIn(chalk.blue('Choisi une lettre (touche 0 pour quitter le jeu):', { limit: ['a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'w', 'x', 'c', 'v', 'b', 'n', '0'] })).toUpperCase()
+    console.log(chalk.whiteBright(`\nSaura tu deviner le mot masqué de ${chalk.cyanBright(wordsCrtNb)} caractères ?\n${emptTab.join().split(',').join(' ')}\nIl te reste${chalk.yellow(` ${plyrTry} `)}essais.    Score: ${chalk.magentaBright(`${score}`)} Points.\n`))
+    const plyerEnt = readlineSync.keyIn(chalk.blue('Choisi une lettre (touche 0 ou shift+0 pour quitter le jeu):', { limit: ['a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'w', 'x', 'c', 'v', 'b', 'n', '0', 'à'] })).toUpperCase()
 
     //verification si la touche '0' est appuyer pour quiter le jeu
     if (plyerEnt === '0') {
@@ -96,7 +98,7 @@ const starGame = () => {
       hang++
     }
 
-    // partie choix fin de jeu et entrer son nom pour le high score
+    // partie choix fin de jeu -- a mettre en place : entrer son nom pour le high score
     const endGame = () => {
       if (partyLeft > 1) {// tant que le nombre de partie est superieur a 1 il continue
         partyLeft--
@@ -119,12 +121,12 @@ const starGame = () => {
         }
     }
 
-    //vérification si ne compteur de lettre trouver est bien egale a ceux du mot secret
+    //vérification si le compteur de lettre trouver est bien egale a ceux du mot secret
     // si c'est le cas, calcul du score final et affichage du mot, du nombre d'essai utiliser et du score du joueur
     //proposition de recommencer la partie
     if (wordsCrtNb === count) {
-      score = score + 40 + (plyrTry * 5)
-      console.log(chalk.greenBright(`Bravo, vous avez trouver ! Le mot était bien ${wordsRan}.\nVous avez trouver en utilisant ${Math.abs(plyrTry - 9)} essais.\nVotre score est de ${score} Points.`)), endGame()
+      score = score + 40 + (plyrTry * 5) //40 représente un bonus pour avoir trouver le mot et un bonus supplémentaire de 5 point par essai restant
+      console.log(chalk.greenBright(`\n${emptTab.join().split(',').join(' ')}\nBravo, vous avez trouver ! Le mot était bien ${wordsRan}.\nVous avez trouver en utilisant ${Math.abs(plyrTry - 9)} essais.\nVotre score est de ${score} Points.`)), endGame()
     } else if (plyrTry === 0) {
       console.log(chalk.red(`\n\n${hangmanPic[9]}\n`))
       console.log(chalk.redBright(`Pas de chance. Le mot était ${wordsRan}.\nVotre score est de ${score} points.`)), endGame()
@@ -132,4 +134,28 @@ const starGame = () => {
   }
 
 }
+
+// partie choix fin de jeu -- a mettre en place : entrer son nom pour le high score
+const endGame = () => {
+  if (partyLeft > 1) {// tant que le nombre de partie est superieur a 1 il continue
+    partyLeft--
+    starGame()
+  } else //mettre en place la comparaison du high score
+      /*if(score > this.score){
+        const enterNam = readlineSync.question(chalk.cyan(`Entrer votre nom`))
+        }*/if (readlineSync.keyInYN(chalk.blue('Recommancer ?'))) {
+      score = 0
+      //fait le backup du fichier high score
+      let cont1 = fs.readFileSync('./score.json', 'utf-8')
+      fs.writeFileSync('./score.bak', `${cont1}`)
+      starGame()
+    } else {
+      //fait le backup du fichier high score
+      let cont2 = fs.readFileSync('./score.json', 'utf-8')
+      fs.writeFileSync('./score.bak', `${cont2}`)
+      console.log(chalk.cyanBright.bold('GAME OVER'))
+      process.exit(1)
+    }
+}
+
 starGame()
