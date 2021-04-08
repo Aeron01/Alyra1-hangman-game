@@ -13,7 +13,7 @@ Si le fichier .bak est absent... ont ne peut plus rien faire.
 
 ======================================================================
 
-                  #Ce qui étais demander
+                  Ce qui étais demander
 
 ======================================================================
 # Hangman game
