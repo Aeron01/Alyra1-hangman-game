@@ -95,9 +95,9 @@ const starGame = () => {
             break
           }
         }
-      } console.log(chalk.blueBright.bold.bgRgb(255, 198, 51)('HIGH SCORE'))
+      } console.log(chalk.blueBright.bold.bgRgb(255, 198, 51)('\n      HIGH SCORE      \n'))
       for (let i = 0; i < 10; i++) {
-        console.log(chalk.rgb(0, 255, i * 20).bgRgb(93, 0, 12)(`${data.top[i].position}: ${data.top[i].name}: ${data.top[i].score}`))
+        console.log(chalk.rgb(0, 255, i * 20).bgRgb(93, 0, 12)(`   ${data.top[i].position}: ${data.top[i].name}: ${data.top[i].score} `))
       }
       if (readlineSync.keyInYN(chalk.blue('Recommancer ?'))) {
         score = 0

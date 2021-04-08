@@ -1,53 +1,53 @@
 {
   "top": [
     {
-      "name": "Brainiac ",
+      "name": "Brainiac  ",
       "score": 540,
       "position": 1
     },
     {
-      "name": "Manhunter",
+      "name": "Manhunter ",
       "score": 430,
       "position": 2
     },
     {
-      "name": "Sonic    ",
-      "score": 170,
+      "name": "Sonic     ",
+      "score": 340,
       "position": 3
     },
     {
-      "name": "_________",
-      "score": 0,
+      "name": "Sheldon   ",
+      "score": 300,
       "position": 4
     },
     {
-      "name": "_________",
-      "score": 0,
+      "name": "Harding   ",
+      "score": 280,
       "position": 5
     },
     {
-      "name": "_________",
-      "score": 0,
+      "name": "Conors J. ",
+      "score": 270,
       "position": 6
     },
     {
-      "name": "_________",
-      "score": 0,
+      "name": "Black Star",
+      "score": 250,
       "position": 7
     },
     {
-      "name": "_________",
-      "score": 0,
+      "name": "Robocop   ",
+      "score": 230,
       "position": 8
     },
     {
-      "name": "_________",
-      "score": 0,
+      "name": "KITT      ",
+      "score": 200,
       "position": 9
     },
     {
-      "name": "_________",
-      "score": 0,
+      "name": "Conan    ",
+      "score": 180,
       "position": 10
     }
   ]
