@@ -13,6 +13,8 @@ dans ce cas renomer simplement le fichier check.bak en check.js.
 
 ======================================================================
 
+# Ce qui étais demander
+
 ======================================================================
 # Hangman game
 
